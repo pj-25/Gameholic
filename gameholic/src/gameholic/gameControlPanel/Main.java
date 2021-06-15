@@ -37,7 +37,7 @@ public class Main extends Application {
             try {
                 Parent root = FXMLLoader.load(Main.class.getClass().getResource("/gameholic/gameControlPanel/res/layouts/" +viewPath+".fxml"));
                 Scene scene = new Scene(root);
-                //scene.getStylesheets().add("/gameholic/gameControlPanel/res/stylesheets/default.css");
+                scene.getStylesheets().add("/gameholic/gameControlPanel/res/stylesheets/default.css");
                 //JMetro jMetro = new JMetro(Style.DARK);
                 //jMetro.setScene(scene);
                 getPrimaryStage().setScene(scene);

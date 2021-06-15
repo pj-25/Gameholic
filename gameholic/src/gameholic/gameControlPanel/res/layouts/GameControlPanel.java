@@ -1,8 +1,6 @@
 package gameholic.gameControlPanel.res.layouts;
 
-import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
 import gameholic.gameControlPanel.Main;
-import javafx.application.HostServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

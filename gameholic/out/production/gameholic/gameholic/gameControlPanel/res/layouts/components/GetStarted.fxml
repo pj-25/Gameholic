@@ -15,11 +15,11 @@
                    <Image url="@../../images/gaming-console.png" />
                </image>
            </ImageView>
-           <Label text="WELCOME" textFill="BLUE">
+            <Label text="WELCOME">
                <font>
-                   <Font name="DejaVu Sans Bold" size="36.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
-           </Label>
+            </Label>
            <TabPane prefHeight="200.0" prefWidth="200.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                    <Tab text="Connect" />
