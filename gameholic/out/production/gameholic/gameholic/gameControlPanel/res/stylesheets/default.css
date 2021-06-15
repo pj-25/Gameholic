@@ -1,0 +1,53 @@
+.root *{
+    -fx-text-fill: white;
+}
+
+.root{
+    -fx-base: #434343;
+}
+
+.menu-bar, .menu-bar .menu-item{
+    -fx-background-color: #3C3F41;
+}
+
+.split-pane, .split-pane .split-pane-divider, .scroll-pane {
+    -fx-background-color: #353535;
+}
+
+.scroll-pane .viewport{
+    -fx-background-color: #434343;
+}
+
+#side-pane, .titled-pane .content, .grid-pane{
+    -fx-background-color: #3D3D3D;
+}
+
+.tab , .titled-pane .title{
+    -fx-opacity: 0.5;
+}
+
+.tab:selected, #blue-button:selected, .titled-pane:expanded .title{
+    -fx-opacity: 1.0;
+}
+
+.tab:hover, #blue-button: hover, .titled-pane .title:hover{
+    -fx-opacity: 0.8;
+}
+
+#base-pane, .tab, .titled-pane .title, .split-pane .split-pane-divider, .tab-pane .tab-header-background{
+    -fx-background-color: #2B2B2B;
+}
+
+.text-field{
+    -fx-background-color: #45494A;
+}
+
+
+#blue-button{
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+}
+
+#blue-button:hover{
+    -fx-opacity: 0.5;
+}

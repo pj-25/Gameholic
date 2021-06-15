@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fitToWidth="true" pannable="true" prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox alignment="CENTER" spacing="5.0">
+         <children>
+            <ImageView fitHeight="267.0" fitWidth="332.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                 <Image url="@../../images/battle.png" />
+             </image>
+         </ImageView>
+            <Label text="Game:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox prefWidth="150.0" promptText="Select game" />
+            <Label prefHeight="18.0" prefWidth="159.0" text="Select Game Mode:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Accordion>
+              <panes>
+                <TitledPane animated="false" text="Online">
+                     <content>
+                        <HBox alignment="CENTER">
+                           <children>
+                               <ImageView fitHeight="111.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                   <image>
+                                       <Image url="@../../images/online-game.png" />
+                                   </image>
+                               </ImageView>
+                              <VBox alignment="TOP_CENTER" spacing="5.0">
+                                 <children>
+                                    <Button id="blue-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Create" />
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label prefHeight="16.0" prefWidth="116.0" text="Game Session ID:" />
+                                          <TextField editable="false" promptText="Game Session ID" GridPane.columnIndex="1" />
+                                          <Label text="Invite your friend:" GridPane.rowIndex="1" />
+                                          <Button mnemonicParsing="false" text="Gmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button mnemonicParsing="false" text="Whatsapp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0" />
+                                    <Label text="OR" />
+                                    <Separator prefWidth="200.0" />
+                                    <HBox alignment="CENTER" spacing="10.0">
+                                       <children>
+                                          <Label text="Game Session ID:" />
+                                          <TextField promptText="Join Game Session ID" />
+                                       </children>
+                                    </HBox>
+                                    <Button id="blue-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Join" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Offline">
+                     <content>
+                         <HBox alignment="CENTER" spacing="10">
+                             <children>
+                                 <ImageView fitHeight="111.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                     <image>
+                                         <Image url="@../../images/computer-game.png" />
+                                     </image>
+                                 </ImageView>
+                              <VBox alignment="TOP_CENTER" spacing="5.0">
+                                 <children>
+                                    <Label text="Player 2 Name:" />
+                                    <TextField promptText="Enter opponent name" />
+                                       <Button id="blue-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Start Game" />
+                                 </children>
+                              </VBox>
+                             </children>
+                         </HBox>
+                     </content></TitledPane>
+              </panes>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </VBox.margin>
+            </Accordion>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>
