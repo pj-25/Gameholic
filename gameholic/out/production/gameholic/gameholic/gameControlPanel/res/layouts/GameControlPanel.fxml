@@ -39,7 +39,7 @@
             </TabPane>
             <VBox id="side-pane" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <VBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -51,6 +51,7 @@
                         </ImageView>
                         <Label text="Developed by Joshi Prashant" />
                         <Hyperlink onAction="#contactDeveloper" text="Contact Developer" />
+                        <Hyperlink layoutX="48.0" layoutY="267.0" onAction="#openGithubRepo" text="GitHub" />
                      </children>
                   </VBox>
                   <Accordion prefWidth="236.0">

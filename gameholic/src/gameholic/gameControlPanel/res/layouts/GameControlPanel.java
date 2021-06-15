@@ -70,4 +70,8 @@ public class GameControlPanel {
     public void contactDeveloper(ActionEvent actionEvent) {
         Main.openInBrowser("https://mail.google.com/mail/u/0/?fs=1&to=joshiprashant.jp25@gmail.com&su=Contact%20Me&body=Write%20your%20message%20here...&tf=cm");
     }
+
+    public void openGithubRepo(ActionEvent actionEvent) {
+        Main.openInBrowser("https://github.com/pj-25/Gameholic");
+    }
 }
