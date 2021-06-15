@@ -36,6 +36,7 @@
 
 .text-field{
     -fx-background-color: #45494A;
+    -fx-text-fill: white;
 }
 
 

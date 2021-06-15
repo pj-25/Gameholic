@@ -11,22 +11,27 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Edit">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Theme" />
-               </items>
-            </Menu>
+                  <Menu mnemonicParsing="false" text="Theme">
+                    <items>
+                        <RadioMenuItem fx:id="switchToModernDark" mnemonicParsing="false" selected="true" text="Modern Dark" />
+                        <RadioMenuItem fx:id="switchToLight" mnemonicParsing="false" text="Light" />
+                        <RadioMenuItem fx:id="switchToPlainDark" mnemonicParsing="false" text="Plain Dark" />
+                    </items>
+                  </Menu>
+               </items></Menu>
           <Menu mnemonicParsing="false" text="View">
             <items>
-              <MenuItem mnemonicParsing="false" text="Tabs" />
+                  <Menu fx:id="TabsSelectMenu" mnemonicParsing="false" text="Tabs" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#openGithubRepo" text="About" />
             </items>
           </Menu>
         </menus>
@@ -57,15 +62,7 @@
                   <Accordion prefWidth="236.0">
                     <panes>
                       <TitledPane fx:id="chatWindow" animated="false" text="Chat window" />
-                      <TitledPane fx:id="notificationsPane" text="Notifications">
-                        <content>
-                              <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
-                                <content>
-                                    <VBox prefHeight="200.0" prefWidth="200.0" />
-                                </content>
-                              </ScrollPane>
-                        </content>
-                      </TitledPane>
+                      <TitledPane fx:id="notificationsPane" text="Notifications" />
                     </panes>
                   </Accordion>
                </children>
@@ -74,7 +71,7 @@
       </SplitPane>
       <HBox id="connect-bar" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <TextField fx:id="playerName" prefHeight="26.0" prefWidth="217.0" promptText="Player Name..." />
+            <TextField fx:id="playerName" prefHeight="26.0" prefWidth="217.0" promptText="Enter your name..." />
             <Button id="blue-button" fx:id="connectBtn" disable="true" mnemonicParsing="false" onAction="#connect" text="Connect" />
             <Label fx:id="statusMessageLbl" prefHeight="16.0" prefWidth="466.0" text="Connect to server..." HBox.hgrow="ALWAYS">
                <HBox.margin>

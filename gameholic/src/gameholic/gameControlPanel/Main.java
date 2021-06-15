@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.ClipboardContent;
@@ -37,7 +38,7 @@ public class Main extends Application {
             try {
                 Parent root = FXMLLoader.load(Main.class.getClass().getResource("/gameholic/gameControlPanel/res/layouts/" +viewPath+".fxml"));
                 Scene scene = new Scene(root);
-                scene.getStylesheets().add("/gameholic/gameControlPanel/res/stylesheets/default.css");
+                scene.getStylesheets().add("/gameholic/gameControlPanel/res/stylesheets/ModernDark.css");
                 //JMetro jMetro = new JMetro(Style.DARK);
                 //jMetro.setScene(scene);
                 getPrimaryStage().setScene(scene);
@@ -45,6 +46,10 @@ public class Main extends Application {
                 ioException.printStackTrace();
             }
         });
+    }
+
+    public static Node loadLayout(String layoutPath) throws IOException{
+        return FXMLLoader.load(Main.class.getResource("/gameholic/gameControlPanel/res/layouts/"+layoutPath+".fxml"));
     }
 
     public static Stage getPrimaryStage() {

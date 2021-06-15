@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JSERVER">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../JavaServerClientAPI/JSC/libs/JSERVER.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
