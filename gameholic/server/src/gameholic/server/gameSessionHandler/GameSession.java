@@ -128,8 +128,11 @@ public class GameSession {
         setOpponentName(opponentName);
         setOpponentConnection(opponentConnection);
         try{
+            System.out.println("Starting...");
             start();
-        }catch (OpponentNotJoinedException ignore){}
+        }catch (OpponentNotJoinedException opponentNotJoinedException){
+            opponentNotJoinedException.printStackTrace();
+        }
     }
 
     public boolean hasOpponentJoined(){
@@ -143,6 +146,7 @@ public class GameSession {
         isRunning = true;
         send(PlayerType.CREATOR, JMessageFormatHandler.encode(GameEvent.START_GAME, gameName, getOpponentName()));
         send(PlayerType.OPPONENT, JMessageFormatHandler.encode(GameEvent.START_GAME, gameName, getCreatorName()));
+        System.out.println("Game started...");
     }
 
     public void send(PlayerType playerType, String msg){

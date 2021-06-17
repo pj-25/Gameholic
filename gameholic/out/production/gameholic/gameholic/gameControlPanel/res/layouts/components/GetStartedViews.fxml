@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+           <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                       <Image url="@../../images/client.png" />
+                   </ImageView>
+                   <Label prefWidth="370.0" text="Connect to server from bottom pane&#10;Enter your name -&gt; click connect" wrapText="true" />
+               </children>
+               <padding>
+                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+      </HBox>
+       <HBox alignment="CENTER" spacing="5.0">
+           <children>
+               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../../images/startup.png" />
+               </ImageView>
+               <TextArea editable="false" prefHeight="150.0" prefWidth="370.0" text="Launch your game from Launcher tab(on left side). &#10;Select Game -&gt; Select Game Mode -&gt; Play  &#10;&#10;# Online: &#10;To play online, player can either create a game or join a game. &#10;* Create game: &#10;Click create button -&gt; wait for server to create game session -&gt; share the generated game session ID to opponent or invite via Gmail/WhatsApp/AskToJoin notification.  &#10;* Join game: &#10;Get game session ID from your friend and click join button&#10;&#10;# Offline: &#10;Enter player names -&gt; click start game button    " wrapText="true" />
+           </children>
+           <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+           </padding>
+       </HBox>
+       <HBox alignment="CENTER" spacing="5.0">
+           <children>
+               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../../images/video-games.png" />
+               </ImageView>
+               <Label prefWidth="370.0" text="Open Game Store Tab(on left side) to search and download new games" wrapText="true" />
+           </children>
+           <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+           </padding>
+       </HBox>
+       <HBox alignment="CENTER" spacing="5.0">
+           <children>
+               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../../images/notification.png" />
+               </ImageView>
+            <Label prefWidth="370.0" text="Notifications are shown in notification pane(on bottom right side)" wrapText="true" />
+           </children>
+           <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+           </padding>
+       </HBox>
+       <HBox alignment="CENTER" spacing="5.0">
+           <children>
+               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../../images/chat(2).png" />
+               </ImageView>
+               <Label prefWidth="370.0" text="Chat window lets you chat with your friends (only when online)" wrapText="true" />
+           </children>
+           <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+           </padding>
+       </HBox>
+   </children>
+</VBox>

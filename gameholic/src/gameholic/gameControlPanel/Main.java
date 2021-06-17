@@ -5,7 +5,6 @@ import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,7 +12,6 @@ import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Observable;
 
 public class Main extends Application {
 
@@ -72,15 +70,15 @@ public class Main extends Application {
         return clipboardContent;
     }
 
-    public static void openInBrowser(String uri){
-        hostServices.showDocument(uri);
-    }
-
     public static void alert(Alert.AlertType alertType, String alertMsg){
         Platform.runLater(()->{
             Alert alert = new Alert(alertType);
             alert.setContentText(alertMsg);
             alert.show();
         });
+    }
+
+    public static HostServices getHostServicesObj(){
+        return hostServices;
     }
 }

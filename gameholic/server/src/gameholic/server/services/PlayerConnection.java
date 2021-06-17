@@ -15,22 +15,20 @@ public class PlayerConnection extends JRequestManager {
 
     @Override
     public void accept(String data) {
-        String []reqData = JMessageFormatHandler.decode(JMessageDelimiter.REQUEST_TYPE_DELIMITER, data, 2);
-
-        String[] gData = JMessageFormatHandler.decode(JMessageDelimiter.EVENT_TYPE_DELIMITER, reqData[1]);
+        String[] gData = JMessageFormatHandler.decode(JMessageDelimiter.EVENT_TYPE_DELIMITER, data,2);
         GameEvent gameEvent = GameEvent.get(Integer.parseInt(gData[0]));
-
+        gData = JMessageFormatHandler.decode(gData[1]);
         switch (gameEvent) {
             case CREATE_GSESSION:
-                createGSession(gData[1], gData[2]);
+                createGSession(gData[0], gData[1]);
                 break;
 
             case JOIN_GSESSION:
-                joinGSession(gData[1], gData[2]);
+                joinGSession(gData[0], gData[1]);
                 break;
 
             case PASS_DATA:
-                passData(gData[1]);
+                passData(gData[0]);
                 break;
 
             case END_GSESSION:
@@ -51,14 +49,15 @@ public class PlayerConnection extends JRequestManager {
         GameSession newGameSession = new GameSession(gameName,creatorName, this);
         gameSessionMap.put(newGameSession.getGameSessionID(), newGameSession);
         setPlayer(PlayerType.CREATOR, newGameSession);
+        send(JMessageFormatHandler.encode(GameEvent.CREATE_GSESSION, newGameSession.getGameSessionID()));
     }
 
     public void joinGSession(String joinSessionId, String opponentName){
         if(!gameSessionMap.containsKey(joinSessionId)){
-            send(JMessageFormatHandler.encode(GameEvent.INVALID_SESSION_ID+""));
+            send(JMessageFormatHandler.encode(GameEvent.INVALID_SESSION_ID));
         }else{
-            gameSession.joinOpponent(opponentName, this);
             setPlayer(PlayerType.OPPONENT, gameSessionMap.get(joinSessionId));
+            gameSession.joinOpponent(opponentName, this);
         }
     }
 
@@ -112,8 +111,9 @@ public class PlayerConnection extends JRequestManager {
     }
 
     @Override
-    public void onClose(){
-        gameSessionMap.remove(getGameSession().getGameSessionID());
-        super.onClose();
+    public void close(){
+        super.close();
+        if(getGameSession().isRunning())
+            gameSessionMap.remove(getGameSession().getGameSessionID());
     }
 }

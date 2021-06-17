@@ -33,7 +33,7 @@
       </MenuBar>
       <SplitPane dividerPositions="0.71" prefHeight="518.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
         <items>
-            <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" side="LEFT">
+            <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="ALL_TABS">
               <tabs>
               </tabs>
             </TabPane>
@@ -67,7 +67,7 @@
       <HBox id="connect-bar" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="NEVER">
          <children>
             <TextField fx:id="playerName" onKeyReleased="#onNameInput" prefHeight="26.0" prefWidth="217.0" promptText="Enter your name..." />
-            <Button id="blue-button" fx:id="connectBtn" disable="true" mnemonicParsing="false" onAction="#connect" text="Connect" />
+            <Button id="blue-button" fx:id="connectBtn" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#connect" text="Connect" />
             <Label fx:id="statusMessageLbl" prefHeight="16.0" prefWidth="466.0" style="-fx-opacity: 0.5;" text="Connect to server..." HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />

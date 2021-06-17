@@ -93,7 +93,7 @@ public class GameControlPanel {
                 connectionProperty.set(false);
             });
             Main.getPrimaryStage().setOnCloseRequest((windowEvent)->{
-                GameManager.getjConnectionManager().close();
+                GameManager.close();
             });
             GameManager.setPlayer1Name(playerName.getText());
 
@@ -177,13 +177,12 @@ public class GameControlPanel {
     }
 
     public void contactDeveloper(ActionEvent actionEvent) {
-        setStatusMessage("Wait! Jumping to Web browser...");
-        Main.openInBrowser("https://mail.google.com/mail/u/0/?fs=1&to=joshiprashant.jp25@gmail.com&su=Contact%20Me&body=Write%20your%20message%20here...&tf=cm");
+        openInBrowser("https://mail.google.com/mail/u/0/?fs=1&to=joshiprashant.jp25@gmail.com&su=Contact%20Me&body=Write%20your%20message%20here...&tf=cm");
     }
 
     public void openGithubRepo(ActionEvent actionEvent) {
         setStatusMessage("Wait! Jumping to Web browser...");
-        Main.openInBrowser("https://github.com/pj-25/Gameholic");
+        openInBrowser("https://github.com/pj-25/Gameholic");
     }
 
     public void close(ActionEvent actionEvent) {
@@ -218,4 +217,10 @@ public class GameControlPanel {
         disconnect();
         connectBtn.disableProperty().unbind();
     }
+
+    public static void openInBrowser(String uri){
+        setStatusMessage("Wait! Jumping to Web browser...");
+        Main.getHostServicesObj().showDocument(uri);
+    }
+
 }

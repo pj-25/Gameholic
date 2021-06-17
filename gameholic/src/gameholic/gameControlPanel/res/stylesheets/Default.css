@@ -34,9 +34,18 @@
     -fx-background-color: #2B2B2B;
 }
 
-.text-field, #dark-box{
+.text-field, #dark-box {
     -fx-background-color: #45494A;
     -fx-text-fill: white;
+}
+
+.text-area {
+    text-area-background: transparent ;
+    -fx-text-fill: white;
+}
+
+.text-area .content {
+    -fx-background-color: text-area-background ;
 }
 
 #blue-button{

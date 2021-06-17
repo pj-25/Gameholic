@@ -39,24 +39,27 @@
                                </ImageView>
                               <VBox alignment="TOP_CENTER" spacing="5.0">
                                  <children>
-                                    <Button id="blue-button" fx:id="createBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Create" />
-                                    <GridPane fx:id="gameSessionInfoPane" disable="true">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
+                                    <Button id="blue-button" fx:id="createBtn" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="138.0" text="Create" />
+                                    <GridPane fx:id="gameSessionInfoPane" disable="true" hgap="5.0">
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
                                           <Label prefHeight="16.0" prefWidth="116.0" text="Game Session ID:" />
                                           <TextField fx:id="createGSessionID" editable="false" promptText="Game Session ID" GridPane.columnIndex="1" />
                                           <Label text="Invite your friend:" GridPane.rowIndex="1" />
-                                          <Button mnemonicParsing="false" onAction="#toGmail" text="Gmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button mnemonicParsing="false" onAction="#toGmail" prefHeight="26.0" prefWidth="84.0" text="Gmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Button mnemonicParsing="false" onAction="#toWhatsapp" text="Whatsapp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                           <Button fx:id="notifyJoinBtn" mnemonicParsing="false" onAction="#notifyJoin" text="Notify join" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="opponentName" onInputMethodTextChanged="#onOpponentNameInput" promptText="Enter Opponent Name" GridPane.rowIndex="3" />
                                        </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
                                     </GridPane>
                                     <Separator prefWidth="200.0" />
                                     <Label text="OR" />
@@ -67,7 +70,7 @@
                                           <TextField fx:id="joinGSessionID" onKeyReleased="#onJoinGSessionIDInput" promptText="Join Game Session ID" />
                                        </children>
                                     </HBox>
-                                    <Button id="blue-button" fx:id="joinBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Join" />
+                                    <Button id="blue-button" fx:id="joinBtn" disable="true" mnemonicParsing="false" onAction="#join" prefHeight="26.0" prefWidth="136.0" text="Join" />
                                  </children>
                               </VBox>
                            </children>

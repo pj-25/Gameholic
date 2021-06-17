@@ -1,6 +1,8 @@
 package gameholic;
 
 import jsc.jConnection.JConnectionManager;
+import jsc.jEventManager.JEventCode;
+import jsc.jEventManager.JEventConsumer;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -74,4 +76,13 @@ public class GameManager {
         GameManager.gameName = gameName;
     }
 
+    public static void bind(JEventCode eventCode, JEventConsumer jEventConsumer){
+        getjConnectionManager().getjEventManager().bind(eventCode, jEventConsumer);
+    }
+
+    public static void close(){
+        if(jConnectionManager!=null){
+            jConnectionManager.close();
+        }
+    }
 }
