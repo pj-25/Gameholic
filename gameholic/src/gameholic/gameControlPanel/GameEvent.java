@@ -1,4 +1,4 @@
-package gameholic.server.services;
+package gameholic.gameControlPanel;
 
 import jsc.jEventManager.JEventCode;
 import jsc.jMessageHandler.JMessageCode;

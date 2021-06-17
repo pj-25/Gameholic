@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="games">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/src/gameholic/games" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/src/gameholic/games" recursive="false" />
+  </library>
+</component>

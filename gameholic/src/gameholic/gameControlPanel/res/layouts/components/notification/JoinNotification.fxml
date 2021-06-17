@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="joinNotification" alignment="CENTER_LEFT" spacing="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.notification.JoinNotification">
+   <children>
+      <Label fx:id="invitationMsg" text="Inviter invites you to join the gameName" />
+      <Button id="blue-button" fx:id="joinBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Join" />
+   </children>
+</VBox>

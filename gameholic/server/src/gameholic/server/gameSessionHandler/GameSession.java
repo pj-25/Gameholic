@@ -1,31 +1,40 @@
 package gameholic.server.gameSessionHandler;
 
 import gameholic.server.services.GameEvent;
-import gameholic.server.services.ServeRequest;
+import gameholic.server.services.PlayerConnection;
 import jsc.jMessageHandler.JMessageFormatHandler;
 
 
 public class GameSession {
 
     private String gameSessionID;
-    private ServeRequest[] playerConnections;
+    private String gameName;
+    private PlayerConnection[] playerConnections;
     private String []playerNames;
     private boolean isRunning = false;
 
-
-    public GameSession(String creatorName, ServeRequest creatorConnection) {
+    public GameSession(String gameName, String creatorName, PlayerConnection creatorConnection) {
         playerNames = new String[2];
-        playerConnections = new ServeRequest[2];
+        playerConnections = new PlayerConnection[2];
+        setGameName(gameName);
         setCreator(creatorName, creatorConnection);
         setGameSessionID(createNewID());
     }
 
-    public GameSession(String creatorName, ServeRequest creatorConnection, String opponentName, ServeRequest opponentConnection){
-        this(creatorName, creatorConnection);
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public GameSession(String gameName, String creatorName, PlayerConnection creatorConnection, String opponentName, PlayerConnection opponentConnection){
+        this(gameName,creatorName, creatorConnection);
         joinOpponent(opponentName, opponentConnection);
     }
 
-    private void setCreator(String creatorName, ServeRequest creatorConnection) {
+    private void setCreator(String creatorName, PlayerConnection creatorConnection) {
         setCreatorName(creatorName);
         setCreatorConnection(creatorConnection);
     }
@@ -68,39 +77,43 @@ public class GameSession {
     }
 
     public String createNewID(){
-        return createNewID(getCreatorName(), this);
+        return createNewID( getGameName(),getCreatorName(), this);
     }
 
-    public static String createNewID(String creatorName, GameSession gameSession){
-        return creatorName + "_" + gameSession.hashCode();
+    public static String createNewID(String gameName, String creatorName, GameSession gameSession){
+        return gameName +"_" + creatorName + "_" + gameSession.hashCode();
     }
 
-    public ServeRequest[] getPlayerConnections() {
+    public PlayerConnection[] getPlayerConnections() {
         return playerConnections;
     }
 
-    public void setPlayerConnections(ServeRequest[] playerConnections) {
-        this.playerConnections = playerConnections;
+    public void setPlayerConnection(PlayerType playerType, PlayerConnection playerConnection){
+        this.playerConnections[playerType.getCode()] = playerConnection;
     }
 
-    public ServeRequest getPlayerConnection(PlayerType playerType){
+    public PlayerConnection getPlayerConnection(PlayerType playerType){
         return playerConnections[playerType.getCode()];
     }
 
-    public ServeRequest getCreatorConnection(){
-        return playerConnections[0];
+    public void setPlayerConnections(PlayerConnection[] playerConnections) {
+        this.playerConnections = playerConnections;
     }
 
-    public ServeRequest getOpponentConnection(){
-        return playerConnections[1];
+    public PlayerConnection getCreatorConnection(){
+        return getPlayerConnection(PlayerType.CREATOR);
     }
 
-    public void setCreatorConnection(ServeRequest creatorConnection){
-        this.playerConnections[0] = creatorConnection;
+    public PlayerConnection getOpponentConnection(){
+        return getPlayerConnection(PlayerType.OPPONENT);
     }
 
-    public void setOpponentConnection(ServeRequest opponentConnection){
-        this.playerConnections[1] = opponentConnection;
+    public void setCreatorConnection(PlayerConnection creatorConnection){
+        setPlayerConnection(PlayerType.CREATOR, creatorConnection);
+    }
+
+    public void setOpponentConnection(PlayerConnection opponentConnection){
+        setPlayerConnection(PlayerType.OPPONENT, opponentConnection);
     }
 
     public boolean isRunning() {
@@ -111,7 +124,7 @@ public class GameSession {
         isRunning = running;
     }
 
-    public void joinOpponent(String opponentName, ServeRequest opponentConnection){
+    public void joinOpponent(String opponentName, PlayerConnection opponentConnection){
         setOpponentName(opponentName);
         setOpponentConnection(opponentConnection);
         try{
@@ -128,19 +141,14 @@ public class GameSession {
             throw new OpponentNotJoinedException("Opponent must join to start the game");
         }
         isRunning = true;
-        send(PlayerType.CREATOR, JMessageFormatHandler.encode(GameEvent.START_GAME, getOpponentName()));
-        send(PlayerType.OPPONENT, JMessageFormatHandler.encode(GameEvent.START_GAME, getCreatorName()));
+        send(PlayerType.CREATOR, JMessageFormatHandler.encode(GameEvent.START_GAME, gameName, getOpponentName()));
+        send(PlayerType.OPPONENT, JMessageFormatHandler.encode(GameEvent.START_GAME, gameName, getCreatorName()));
     }
 
     public void send(PlayerType playerType, String msg){
         getPlayerConnection(playerType).send(msg);
     }
 
-    public static class OpponentNotJoinedException extends Exception{
-        public OpponentNotJoinedException(String errorMsg){
-            super(errorMsg);
-        }
-    }
 
     public void end(GameEvent endEvent){
         send(PlayerType.CREATOR, JMessageFormatHandler.encode(endEvent));
@@ -148,5 +156,11 @@ public class GameSession {
             send(PlayerType.OPPONENT, JMessageFormatHandler.encode(endEvent));
         }
         setRunning(false);
+    }
+
+    public static class OpponentNotJoinedException extends Exception{
+        public OpponentNotJoinedException(String errorMsg){
+            super(errorMsg);
+        }
     }
 }

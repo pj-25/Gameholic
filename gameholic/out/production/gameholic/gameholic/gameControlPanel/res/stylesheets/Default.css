@@ -34,11 +34,10 @@
     -fx-background-color: #2B2B2B;
 }
 
-.text-field{
+.text-field, #dark-box{
     -fx-background-color: #45494A;
     -fx-text-fill: white;
 }
-
 
 #blue-button{
     -fx-background-color: blue;

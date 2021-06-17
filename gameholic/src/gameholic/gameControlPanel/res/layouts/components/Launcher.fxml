@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane fitToWidth="true" pannable="true" prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fitToWidth="true" pannable="true" prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.Launcher">
    <content>
       <VBox alignment="CENTER" spacing="5.0">
          <children>
@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <ComboBox prefWidth="150.0" promptText="Select game" />
+            <ComboBox fx:id="gameName" prefWidth="150.0" promptText="Select game" />
             <Label prefHeight="18.0" prefWidth="159.0" text="Select Game Mode:">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -30,7 +30,7 @@
               <panes>
                 <TitledPane animated="false" text="Online">
                      <content>
-                        <HBox alignment="CENTER">
+                        <HBox fx:id="onlineModePane" alignment="CENTER">
                            <children>
                                <ImageView fitHeight="111.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                                    <image>
@@ -39,8 +39,8 @@
                                </ImageView>
                               <VBox alignment="TOP_CENTER" spacing="5.0">
                                  <children>
-                                    <Button id="blue-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Create" />
-                                    <GridPane>
+                                    <Button id="blue-button" fx:id="createBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Create" />
+                                    <GridPane fx:id="gameSessionInfoPane" disable="true">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -52,10 +52,10 @@
                                       </rowConstraints>
                                        <children>
                                           <Label prefHeight="16.0" prefWidth="116.0" text="Game Session ID:" />
-                                          <TextField editable="false" promptText="Game Session ID" GridPane.columnIndex="1" />
+                                          <TextField fx:id="createGSessionID" editable="false" promptText="Game Session ID" GridPane.columnIndex="1" />
                                           <Label text="Invite your friend:" GridPane.rowIndex="1" />
-                                          <Button mnemonicParsing="false" text="Gmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Button mnemonicParsing="false" text="Whatsapp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Button mnemonicParsing="false" onAction="#toGmail" text="Gmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button mnemonicParsing="false" onAction="#toWhatsapp" text="Whatsapp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                     <Separator prefWidth="200.0" />
@@ -64,10 +64,10 @@
                                     <HBox alignment="CENTER" spacing="10.0">
                                        <children>
                                           <Label text="Game Session ID:" />
-                                          <TextField promptText="Join Game Session ID" />
+                                          <TextField fx:id="joinGSessionID" onKeyReleased="#onJoinGSessionIDInput" promptText="Join Game Session ID" />
                                        </children>
                                     </HBox>
-                                    <Button id="blue-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Join" />
+                                    <Button id="blue-button" fx:id="joinBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Join" />
                                  </children>
                               </VBox>
                            </children>
@@ -85,9 +85,11 @@
                                  </ImageView>
                               <VBox alignment="TOP_CENTER" spacing="5.0">
                                  <children>
-                                    <Label text="Player 2 Name:" />
-                                    <TextField promptText="Enter opponent name" />
-                                       <Button id="blue-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Start Game" />
+                                     <Label text="Player 1 Name:" />
+                                     <TextField fx:id="player1Name" promptText="Enter player 1 name" />
+                                     <Label text="Player 2 Name:" />
+                                     <TextField fx:id="player2Name" promptText="Enter player 2 name" />
+                                     <Button id="blue-button" fx:id="startGameBtn" mnemonicParsing="false" onAction="#startGame" prefHeight="26.0" prefWidth="138.0" text="Start Game" />
                                  </children>
                               </VBox>
                              </children>

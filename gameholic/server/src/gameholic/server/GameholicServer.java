@@ -1,6 +1,6 @@
 package gameholic.server;
 
-import gameholic.server.services.ServeRequest;
+import gameholic.server.services.PlayerConnection;
 import jsc.jServer.JServer;
 
 import java.io.IOException;
@@ -15,9 +15,9 @@ public class GameholicServer {
 
             JServer serverApp;
             if(s.length == 1){
-                serverApp = new JServer(Integer.parseInt(s[0]), ServeRequest.class);
+                serverApp = new JServer(Integer.parseInt(s[0]), PlayerConnection.class);
             }else {
-                serverApp = new JServer(ServeRequest.class);
+                serverApp = new JServer(PlayerConnection.class);
             }
             serverApp.start();
 

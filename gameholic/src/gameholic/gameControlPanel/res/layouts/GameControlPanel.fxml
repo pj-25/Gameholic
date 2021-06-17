@@ -11,18 +11,13 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem fx:id="disconnectMenuItem" mnemonicParsing="false" onAction="#disconnect" text="Disconnect" />
               <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Edit">
                <items>
-                  <Menu mnemonicParsing="false" text="Theme">
-                    <items>
-                        <RadioMenuItem fx:id="switchToModernDark" mnemonicParsing="false" selected="true" text="Modern Dark" />
-                        <RadioMenuItem fx:id="switchToLight" mnemonicParsing="false" text="Light" />
-                        <RadioMenuItem fx:id="switchToPlainDark" mnemonicParsing="false" text="Plain Dark" />
-                    </items>
-                  </Menu>
+                  <Menu fx:id="themeMenu" mnemonicParsing="false" text="Theme" />
                </items></Menu>
           <Menu mnemonicParsing="false" text="View">
             <items>
@@ -71,12 +66,15 @@
       </SplitPane>
       <HBox id="connect-bar" alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <TextField fx:id="playerName" prefHeight="26.0" prefWidth="217.0" promptText="Enter your name..." />
+            <TextField fx:id="playerName" onKeyReleased="#onNameInput" prefHeight="26.0" prefWidth="217.0" promptText="Enter your name..." />
             <Button id="blue-button" fx:id="connectBtn" disable="true" mnemonicParsing="false" onAction="#connect" text="Connect" />
-            <Label fx:id="statusMessageLbl" prefHeight="16.0" prefWidth="466.0" text="Connect to server..." HBox.hgrow="ALWAYS">
+            <Label fx:id="statusMessageLbl" prefHeight="16.0" prefWidth="466.0" style="-fx-opacity: 0.5;" text="Connect to server..." HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />
-               </HBox.margin></Label>
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></Label>
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -8,7 +8,7 @@ import jsc.jServer.JRequestManager;
 
 import java.util.HashMap;
 
-public class ServeRequest extends JRequestManager {
+public class PlayerConnection extends JRequestManager {
     public static HashMap<String, GameSession> gameSessionMap = new HashMap<>();
     private GameSession gameSession;
     private PlayerType playerType;
@@ -22,7 +22,7 @@ public class ServeRequest extends JRequestManager {
 
         switch (gameEvent) {
             case CREATE_GSESSION:
-                createGSession(gData[1]);
+                createGSession(gData[1], gData[2]);
                 break;
 
             case JOIN_GSESSION:
@@ -47,8 +47,8 @@ public class ServeRequest extends JRequestManager {
         }
     }
 
-    public void createGSession(String creatorName){
-        GameSession newGameSession = new GameSession(creatorName, this);
+    public void createGSession(String gameName, String creatorName){
+        GameSession newGameSession = new GameSession(gameName,creatorName, this);
         gameSessionMap.put(newGameSession.getGameSessionID(), newGameSession);
         setPlayer(PlayerType.CREATOR, newGameSession);
     }
@@ -87,7 +87,7 @@ public class ServeRequest extends JRequestManager {
     }
 
     public static void setGameSessionMap(HashMap<String, GameSession> gameSessionMap) {
-        ServeRequest.gameSessionMap = gameSessionMap;
+        PlayerConnection.gameSessionMap = gameSessionMap;
     }
 
     public GameSession getGameSession() {
@@ -112,8 +112,8 @@ public class ServeRequest extends JRequestManager {
     }
 
     @Override
-    public void close(){
+    public void onClose(){
         gameSessionMap.remove(getGameSession().getGameSessionID());
-        super.close();
+        super.onClose();
     }
 }

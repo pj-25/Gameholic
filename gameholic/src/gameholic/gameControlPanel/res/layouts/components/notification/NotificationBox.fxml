@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="notificationBox" alignment="CENTER" prefWidth="278.0" spacing="5.0" style="-fx-background-color: rgba(43,43,43,0.7);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.notification.NotificationBox">
+    <children>
+      <VBox fx:id="content" alignment="CENTER_LEFT" style="-fx-background-color: rgba(43,43,43,0.6);" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+        <Button fx:id="clearBtn" mnemonicParsing="false" text="Clear" />
+    </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
