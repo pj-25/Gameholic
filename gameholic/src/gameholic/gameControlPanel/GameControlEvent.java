@@ -1,11 +1,10 @@
 package gameholic.gameControlPanel;
 
 import jsc.jEventManager.JEventCode;
-import jsc.jMessageHandler.JMessageCode;
 
 import java.util.HashMap;
 
-public enum GameEvent implements JEventCode {
+public enum GameControlEvent implements JEventCode {
 
     CREATE_GSESSION(1),
     JOIN_GSESSION(2),
@@ -19,15 +18,15 @@ public enum GameEvent implements JEventCode {
     ;
 
     private final int GAME_EVENT_CODE;
-    private final static HashMap<Integer, GameEvent> gameEventMap = new HashMap<>();
+    private final static HashMap<Integer, GameControlEvent> gameEventMap = new HashMap<>();
 
-    GameEvent(int gecode){
+    GameControlEvent(int gecode){
         this.GAME_EVENT_CODE = gecode;
     }
 
     static{
-        for(GameEvent gameEvent:GameEvent.values()){
-            gameEventMap.put(gameEvent.getCode(), gameEvent);
+        for(GameControlEvent gameControlEvent : GameControlEvent.values()){
+            gameEventMap.put(gameControlEvent.getCode(), gameControlEvent);
         }
     }
 
@@ -36,7 +35,7 @@ public enum GameEvent implements JEventCode {
         return GAME_EVENT_CODE;
     }
 
-    public static GameEvent get(int i){
+    public static GameControlEvent get(int i){
         return gameEventMap.get(i);
     }
 }

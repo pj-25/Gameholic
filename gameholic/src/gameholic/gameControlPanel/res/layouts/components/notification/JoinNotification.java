@@ -1,6 +1,6 @@
 package gameholic.gameControlPanel.res.layouts.components.notification;
 
-import gameholic.gameControlPanel.GameEvent;
+import gameholic.gameControlPanel.GameControlEvent;
 import gameholic.GameManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,7 +20,7 @@ public class JoinNotification {
         invitationMsg.setText(inviterName +" invites you to join "+ gameName);
         joinBtn.setOnAction((actionEvent)->{
             String msg = JMessageFormatHandler.encode(gameSessionID, GameManager.getPlayerNames()[0]);
-            GameManager.getjConnectionManager().send(GameEvent.JOIN_GSESSION, msg);
+            GameManager.getjConnectionManager().send(GameControlEvent.JOIN_GSESSION, msg);
         });
         return joinNotification;
     }

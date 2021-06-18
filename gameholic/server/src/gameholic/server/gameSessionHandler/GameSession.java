@@ -1,6 +1,6 @@
 package gameholic.server.gameSessionHandler;
 
-import gameholic.server.services.GameEvent;
+import gameholic.server.services.GameControlEvent;
 import gameholic.server.services.PlayerConnection;
 import jsc.jMessageHandler.JMessageFormatHandler;
 
@@ -134,7 +134,6 @@ public class GameSession {
     public void joinOpponent(String opponentName, PlayerConnection opponentConnection){
         setOpponent(opponentName, opponentConnection);
         try{
-            System.out.println("Starting...");
             start();
         }catch (OpponentNotJoinedException opponentNotJoinedException){
             opponentNotJoinedException.printStackTrace();
@@ -150,9 +149,8 @@ public class GameSession {
             throw new OpponentNotJoinedException("Opponent must join to start the game");
         }
         isRunning = true;
-        send(PlayerType.CREATOR, JMessageFormatHandler.encode(GameEvent.START_GAME, gameName, getOpponentName()));
-        send(PlayerType.OPPONENT, JMessageFormatHandler.encode(GameEvent.START_GAME, gameName, getCreatorName()));
-        System.out.println("Game started...");
+        send(PlayerType.CREATOR, JMessageFormatHandler.encode(GameControlEvent.START_GAME, gameName, getOpponentName()));
+        send(PlayerType.OPPONENT, JMessageFormatHandler.encode(GameControlEvent.START_GAME, gameName, getCreatorName()));
     }
 
     public void send(PlayerType playerType, String msg){
@@ -160,7 +158,7 @@ public class GameSession {
     }
 
 
-    public void end(GameEvent endEvent){
+    public void end(GameControlEvent endEvent){
         send(PlayerType.CREATOR, JMessageFormatHandler.encode(endEvent));
         if(hasOpponentJoined()){
             send(PlayerType.OPPONENT, JMessageFormatHandler.encode(endEvent));

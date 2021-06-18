@@ -16,10 +16,9 @@ public class PlayerConnection extends JRequestManager {
     @Override
     public void accept(String data) {
         String[] gData = JMessageFormatHandler.decode(JMessageDelimiter.EVENT_TYPE_DELIMITER, data,2);
-        GameEvent gameEvent = GameEvent.get(Integer.parseInt(gData[0]));
+        GameControlEvent gameControlEvent = GameControlEvent.get(Integer.parseInt(gData[0]));
         gData = JMessageFormatHandler.decode(gData[1]);
-        System.out.println(gameEvent);
-        switch (gameEvent) {
+        switch (gameControlEvent) {
             case CREATE_GSESSION:
                 createGSession(gData[0], gData[1]);
                 break;
@@ -50,14 +49,12 @@ public class PlayerConnection extends JRequestManager {
         GameSession newGameSession = new GameSession(gameName,creatorName, this);
         gameSessionMap.put(newGameSession.getGameSessionID(), newGameSession);
         setPlayer(PlayerType.CREATOR, newGameSession);
-        send(JMessageFormatHandler.encode(GameEvent.CREATE_GSESSION, newGameSession.getGameSessionID()));
+        send(JMessageFormatHandler.encode(GameControlEvent.CREATE_GSESSION, newGameSession.getGameSessionID()));
     }
 
     public void joinGSession(String joinSessionId, String opponentName){
-        System.out.println("["+joinSessionId+", "+opponentName+"]");
         if(!gameSessionMap.containsKey(joinSessionId)){
-            System.out.println("Invalid gSessionID");
-            send(JMessageFormatHandler.encode(GameEvent.INVALID_SESSION_ID));
+            send(JMessageFormatHandler.encode(GameControlEvent.INVALID_SESSION_ID));
         }else{
             setPlayer(PlayerType.OPPONENT, gameSessionMap.get(joinSessionId));
             getGameSession().joinOpponent(opponentName, this);
@@ -72,16 +69,16 @@ public class PlayerConnection extends JRequestManager {
         return (playerType == PlayerType.CREATOR)?PlayerType.OPPONENT:PlayerType.CREATOR;
     }
 
-    public void endGSession(GameEvent endEvent){
+    public void endGSession(GameControlEvent endEvent){
         gameSession.end(endEvent);
     }
 
     public void endGSession(){
-        endGSession(GameEvent.END_GSESSION);
+        endGSession(GameControlEvent.END_GSESSION);
     }
 
     public void gameOver(){
-        endGSession(GameEvent.GAME_OVER);
+        endGSession(GameControlEvent.GAME_OVER);
     }
 
     public static HashMap<String, GameSession> getGameSessionMap() {
@@ -116,7 +113,10 @@ public class PlayerConnection extends JRequestManager {
     @Override
     public void close(){
         super.close();
-        if(gameSession!=null)
-            gameSessionMap.remove(getGameSession().getGameSessionID());
+        if(gameSession!=null) {
+            endGSession();
+            if(playerType==PlayerType.CREATOR)
+                gameSessionMap.remove(getGameSession().getGameSessionID());
+        }
     }
 }

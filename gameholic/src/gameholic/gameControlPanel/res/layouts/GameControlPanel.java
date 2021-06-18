@@ -3,6 +3,7 @@ package gameholic.gameControlPanel.res.layouts;
 import gameholic.GameManager;
 import gameholic.gameControlPanel.Main;
 import gameholic.gameControlPanel.res.layouts.components.notification.Notifications;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -73,7 +74,6 @@ public class GameControlPanel {
     public void initNotifications() throws IOException {
         notificationsPane.setContent(FXMLLoader.load(getClass().getResource(COMPONENTS_DIR + "notification/Notifications.fxml")));
         notifications = notificationsPane;
-        defaultFill = notificationsPane.getTextFill();
         notificationsPane.setOnMouseReleased((mouseEvent)->{
             if(notificationsPane.isExpanded() || !notificationsPane.getText().equals("Notifications")){
                 notificationsPane.setTextFill(defaultFill);
@@ -173,7 +173,9 @@ public class GameControlPanel {
     }
 
     public static void setStatusMessage(String msg){
-        statusMessage.setText(msg);
+        Platform.runLater(()->{
+            statusMessage.setText(msg);
+        });
     }
 
     public void contactDeveloper(ActionEvent actionEvent) {

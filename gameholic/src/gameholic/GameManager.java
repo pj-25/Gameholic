@@ -3,15 +3,19 @@ package gameholic;
 import jsc.jConnection.JConnectionManager;
 import jsc.jEventManager.JEventCode;
 import jsc.jEventManager.JEventConsumer;
+import jsc.jEventManager.JEventManager;
+import jsc.jEventManager.JEventType;
 
 import java.io.IOException;
 import java.util.Properties;
 
 public class GameManager {
     private static JConnectionManager jConnectionManager;
+    private static final JEventManager jEventManager;
     private static String[] playerNames;
     private static String gameSessionID;
     private static String gameName;
+    private static GameMode gameMode;
 
     private static Properties gameConfig;
     public static final String GAME_CONFIG_FILE = "/gameholic/gameConfig.properties";
@@ -20,12 +24,14 @@ public class GameManager {
         gameConfig = new Properties();
         //gameConfig.load(new FileReader(GAME_CONFIG_FILE));
         playerNames = new String[2];
+        jEventManager = new JEventManager();
     }
 
     public static void connect() throws IOException{
         //jConnection = new JConnection(gameConfig.getProperty("SERVER_IP"),Integer.parseInt(gameConfig.getProperty("SERVER_PORT")));
-        jConnectionManager = new JConnectionManager("127.0.0.1", 5656);
+        jConnectionManager = new JConnectionManager("127.0.0.1", 5656, jEventManager);
         jConnectionManager.run();
+        jEventManager.notifyAllConsumers(JEventType.CONNECT, "connected");
     }
 
     public static JConnectionManager getjConnectionManager() {
@@ -77,12 +83,28 @@ public class GameManager {
     }
 
     public static void bind(JEventCode eventCode, JEventConsumer jEventConsumer){
-        getjConnectionManager().getjEventManager().bind(eventCode, jEventConsumer);
+        getjEventManager().bind(eventCode, jEventConsumer);
+    }
+
+    public static void bindOnConnect(JEventConsumer jEventConsumer){
+        bind(JEventType.CONNECT, jEventConsumer);
+    }
+
+    public static JEventManager getjEventManager() {
+        return jEventManager;
     }
 
     public static void close(){
         if(jConnectionManager!=null){
             jConnectionManager.close();
         }
+    }
+
+    public static GameMode getGameMode() {
+        return gameMode;
+    }
+
+    public static void setGameMode(GameMode gameMode) {
+        GameManager.gameMode = gameMode;
     }
 }

@@ -1,10 +1,10 @@
 package gameholic.gameControlPanel.res.layouts.components;
 
 import gameholic.GameManager;
-import gameholic.gameControlPanel.GameEvent;
+import gameholic.GameMode;
+import gameholic.gameControlPanel.GameControlEvent;
 import gameholic.gameControlPanel.Main;
 import gameholic.gameControlPanel.res.layouts.GameControlPanel;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -47,8 +47,27 @@ public class Launcher {
 
     public void initialize(){
         loadGameNames();
-
+        bindEvents();
         onlineModePane.disableProperty().bind(GameControlPanel.connectionProperty().not());
+    }
+
+    private void bindEvents(){
+        GameManager.bind(GameControlEvent.CREATE_GSESSION, (data)->{
+            gameSessionInfoPane.setDisable(false);
+            String[] gData = JMessageFormatHandler.decode(data);
+            createGSessionID.setText(gData[0]);
+
+            GameControlPanel.setStatusMessage("Game session created successfully!");
+
+        });
+
+        onStartGame();
+
+        GameManager.bind(GameControlEvent.INVALID_SESSION_ID, eventData->{
+            Main.alert(Alert.AlertType.ERROR, "Invalid Game Session ID :( \nPlease contact your friend for the same!");
+            joinGSessionID.requestFocus();
+            GameControlPanel.setStatusMessage("Join request rejected due to invalid Game session ID");
+        });
     }
 
     private void loadGameNames() {
@@ -81,6 +100,8 @@ public class Launcher {
             Main.alert(Alert.AlertType.ERROR, "Player 2 name is required field!");
         }
         else if(gameName.getValue()!=null){
+            GameManager.setPlayerNames(new String[]{player1Name.getText(), player2Name.getText()});
+            GameManager.setGameMode(GameMode.OFFLINE);
             launch(gameName.getValue());
         }
         else{
@@ -91,9 +112,7 @@ public class Launcher {
 
     public void launch(String gameName) {
         GameManager.setGameName(gameName);
-        Platform.runLater(()->{
-            GameControlPanel.setStatusMessage("Be ready! Launching "+gameName);
-        });
+        GameControlPanel.setStatusMessage("Be ready! Launching "+gameName);
     }
 
     public void onOpponentNameInput(InputMethodEvent inputMethodEvent) {
@@ -106,21 +125,12 @@ public class Launcher {
 
     public void create(ActionEvent actionEvent) {
         if(gameName.getValue()!=null){
-            GameManager.getjConnectionManager().send(GameEvent.CREATE_GSESSION, JMessageFormatHandler.encode(gameName.getValue(), GameManager.getPlayerNames()[0]));
-            GameManager.bind(GameEvent.CREATE_GSESSION, (data)->{
-                gameSessionInfoPane.setDisable(false);
-                String[] gData = JMessageFormatHandler.decode(data);
-                createGSessionID.setText(gData[0]);
-                Platform.runLater(()->{
-                    GameControlPanel.setStatusMessage("Game session created successfully!");
-                });
-            });
+            GameManager.getjConnectionManager().send(GameControlEvent.CREATE_GSESSION, JMessageFormatHandler.encode(gameName.getValue(), GameManager.getPlayerNames()[0]));
             createBtn.setDisable(true);
             GameManager.getjConnectionManager().bindOnClose((s -> {
                 createBtn.setDisable(false);
                 gameSessionInfoPane.setDisable(false);
             }));
-            onStartGame();
             GameControlPanel.setStatusMessage("Requested to create new game session, please wait!");
         }
         else{
@@ -131,30 +141,22 @@ public class Launcher {
 
     public void join(ActionEvent actionEvent) {
         joinBtn.setDisable(true);
-        GameManager.getjConnectionManager().send(GameEvent.JOIN_GSESSION, JMessageFormatHandler.encode(joinGSessionID.getText(), GameManager.getPlayerNames()[0]));
+        GameManager.getjConnectionManager().send(GameControlEvent.JOIN_GSESSION, JMessageFormatHandler.encode(joinGSessionID.getText(), GameManager.getPlayerNames()[0]));
         GameControlPanel.setStatusMessage("Join request sent...");
-        GameManager.bind(GameEvent.INVALID_SESSION_ID, eventData->{
-            Main.alert(Alert.AlertType.ERROR, "Invalid Game Session ID :( \nPlease contact your friend for the same!");
-            Platform.runLater(()->{
-                joinGSessionID.requestFocus();
-                GameControlPanel.setStatusMessage("Join request rejected due to invalid Game session ID");
-            });
-        });
-        onStartGame();
     }
 
     public void onStartGame(){
-        GameManager.bind(GameEvent.START_GAME, eventData -> {
+        GameManager.bind(GameControlEvent.START_GAME, eventData -> {
             String[] gData = JMessageFormatHandler.decode(eventData);
             GameManager.setPlayer2Name(gData[1]);
-            launch(gData[0]);
-            GameManager.bind(GameEvent.END_GSESSION, (endEventData)->{
+            GameManager.setGameMode(GameMode.ONLINE);
+            GameManager.bind(GameControlEvent.END_GSESSION, (endEventData)->{
                 GameControlPanel.setStatusMessage("Game Session Ended!");
             });
-            GameManager.bind(GameEvent.GAME_OVER, (gameOverEvent)->{
+            GameManager.bind(GameControlEvent.GAME_OVER, (gameOverEvent)->{
                 GameControlPanel.setStatusMessage("Game Over!");
             });
+            launch(gData[0]);
         });
-        System.out.println(GameManager.getjConnectionManager().getjEventManager());
     }
 }
