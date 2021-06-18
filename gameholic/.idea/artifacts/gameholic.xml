@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="gameholic">
+    <output-path>$PROJECT_DIR$/out/artifacts/gameholic</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="gameholic.gameControlPanel.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Gameholic" />
+        <option name="vendor" value="gameholic" />
+        <option name="version" value="1.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="gameholic.jar">
+        <element id="module-output" name="gameholic" />
+      </element>
+      <element id="library" level="project" name="JConnection" />
+    </root>
+  </artifact>
+</component>

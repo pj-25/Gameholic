@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox fx:id="notificationBox" alignment="CENTER" prefWidth="278.0" spacing="5.0" style="-fx-background-color: rgba(43,43,43,0.7);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.notification.NotificationBox">
+<HBox fx:id="notificationBox" alignment="CENTER" prefWidth="278.0" spacing="5.0" style="-fx-background-color: rgba(43,43,43,0.7);" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.notification.NotificationBox">
     <children>
       <VBox fx:id="content" alignment="CENTER_LEFT" style="-fx-background-color: rgba(43,43,43,0.6);" HBox.hgrow="ALWAYS">
          <HBox.margin>

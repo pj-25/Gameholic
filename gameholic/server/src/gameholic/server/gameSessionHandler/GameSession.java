@@ -37,6 +37,13 @@ public class GameSession {
     private void setCreator(String creatorName, PlayerConnection creatorConnection) {
         setCreatorName(creatorName);
         setCreatorConnection(creatorConnection);
+        creatorConnection.setConnectionID(creatorName);
+    }
+
+    private void setOpponent(String opponentName, PlayerConnection opponentConnection){
+        setOpponentName(opponentName);
+        setOpponentConnection(opponentConnection);
+        opponentConnection.setConnectionID(opponentName);
     }
 
     public String getGameSessionID() {
@@ -125,8 +132,7 @@ public class GameSession {
     }
 
     public void joinOpponent(String opponentName, PlayerConnection opponentConnection){
-        setOpponentName(opponentName);
-        setOpponentConnection(opponentConnection);
+        setOpponent(opponentName, opponentConnection);
         try{
             System.out.println("Starting...");
             start();

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 
-<VBox alignment="CENTER" prefHeight="506.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.GetStarted">
+<VBox alignment="CENTER" prefHeight="506.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.GetStarted">
  <children>
      <ImageView fitHeight="212.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true">
          <image>

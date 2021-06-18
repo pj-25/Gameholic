@@ -18,6 +18,7 @@ public class PlayerConnection extends JRequestManager {
         String[] gData = JMessageFormatHandler.decode(JMessageDelimiter.EVENT_TYPE_DELIMITER, data,2);
         GameEvent gameEvent = GameEvent.get(Integer.parseInt(gData[0]));
         gData = JMessageFormatHandler.decode(gData[1]);
+        System.out.println(gameEvent);
         switch (gameEvent) {
             case CREATE_GSESSION:
                 createGSession(gData[0], gData[1]);
@@ -53,11 +54,13 @@ public class PlayerConnection extends JRequestManager {
     }
 
     public void joinGSession(String joinSessionId, String opponentName){
+        System.out.println("["+joinSessionId+", "+opponentName+"]");
         if(!gameSessionMap.containsKey(joinSessionId)){
+            System.out.println("Invalid gSessionID");
             send(JMessageFormatHandler.encode(GameEvent.INVALID_SESSION_ID));
         }else{
             setPlayer(PlayerType.OPPONENT, gameSessionMap.get(joinSessionId));
-            gameSession.joinOpponent(opponentName, this);
+            getGameSession().joinOpponent(opponentName, this);
         }
     }
 
@@ -113,7 +116,7 @@ public class PlayerConnection extends JRequestManager {
     @Override
     public void close(){
         super.close();
-        if(getGameSession().isRunning())
+        if(gameSession!=null)
             gameSessionMap.remove(getGameSession().getGameSessionID());
     }
 }

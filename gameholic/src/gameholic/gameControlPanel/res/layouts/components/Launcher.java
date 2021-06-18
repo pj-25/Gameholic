@@ -65,7 +65,7 @@ public class Launcher {
     }
 
     public void toWhatsapp(ActionEvent actionEvent) {
-        GameControlPanel.openInBrowser("https://api.whatsapp.com/send?&text=Invitation from "+ GameManager.getPlayerNames()[0]+"%0aHello gameholic!%0a Join me to play "+gameName.getValue()+":)%0aGame Session ID: "+createGSessionID.getText()+"%0aNote: Join using above session Id!%0aWaiting for you to join...");
+        GameControlPanel.openInBrowser("https://api.whatsapp.com/send?&text=Invitation from "+ GameManager.getPlayerNames()[0]+":%0aHello gameholic!%0a Join me to play "+gameName.getValue()+":)%0aGame Session ID: "+createGSessionID.getText()+"%0aNote: Join using above session Id!%0aWaiting for you to join...");
     }
 
     public void onJoinGSessionIDInput(KeyEvent keyEvent) {
@@ -80,8 +80,12 @@ public class Launcher {
         else if(player2Name.getText().isEmpty()){
             Main.alert(Alert.AlertType.ERROR, "Player 2 name is required field!");
         }
-        else{
+        else if(gameName.getValue()!=null){
             launch(gameName.getValue());
+        }
+        else{
+            Main.alert(Alert.AlertType.ERROR, "Please Select Game!");
+            gameName.requestFocus();
         }
     }
 
@@ -145,11 +149,12 @@ public class Launcher {
             GameManager.setPlayer2Name(gData[1]);
             launch(gData[0]);
             GameManager.bind(GameEvent.END_GSESSION, (endEventData)->{
-                GameControlPanel.setStatusMessage("Game Ended!");
+                GameControlPanel.setStatusMessage("Game Session Ended!");
             });
             GameManager.bind(GameEvent.GAME_OVER, (gameOverEvent)->{
                 GameControlPanel.setStatusMessage("Game Over!");
             });
         });
+        System.out.println(GameManager.getjConnectionManager().getjEventManager());
     }
 }

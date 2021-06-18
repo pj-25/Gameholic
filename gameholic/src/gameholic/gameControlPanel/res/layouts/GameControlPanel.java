@@ -71,7 +71,7 @@ public class GameControlPanel {
     }
 
     public void initNotifications() throws IOException {
-        notificationsPane.setContent(FXMLLoader.load(getClass().getResource(COMPONENTS_DIR + "/notification/Notifications.fxml")));
+        notificationsPane.setContent(FXMLLoader.load(getClass().getResource(COMPONENTS_DIR + "notification/Notifications.fxml")));
         notifications = notificationsPane;
         defaultFill = notificationsPane.getTextFill();
         notificationsPane.setOnMouseReleased((mouseEvent)->{

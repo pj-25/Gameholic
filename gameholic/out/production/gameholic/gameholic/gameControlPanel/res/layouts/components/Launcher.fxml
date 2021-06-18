@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane fitToWidth="true" pannable="true" prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.Launcher">
+<ScrollPane fitToWidth="true" pannable="true" prefHeight="600.0" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameholic.gameControlPanel.res.layouts.components.Launcher">
    <content>
       <VBox alignment="CENTER" spacing="5.0">
          <children>
