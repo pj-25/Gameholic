@@ -1,10 +1,13 @@
 package gameholic.gameControlPanel.res.layouts.components;
 
-import gameholic.GameManager;
-import gameholic.GameMode;
+
 import gameholic.gameControlPanel.GameControlEvent;
 import gameholic.gameControlPanel.Main;
 import gameholic.gameControlPanel.res.layouts.GameControlPanel;
+import gameholic.gameManager.GameManager;
+import gameholic.gameManager.GameMode;
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,6 +18,7 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import jsc.jMessageHandler.JMessageFormatHandler;
 
 public class Launcher {
@@ -56,7 +60,6 @@ public class Launcher {
             gameSessionInfoPane.setDisable(false);
             String[] gData = JMessageFormatHandler.decode(data);
             createGSessionID.setText(gData[0]);
-
             GameControlPanel.setStatusMessage("Game session created successfully!");
 
         });
@@ -113,6 +116,18 @@ public class Launcher {
     public void launch(String gameName) {
         GameManager.setGameName(gameName);
         GameControlPanel.setStatusMessage("Be ready! Launching "+gameName);
+        Platform.runLater(()->{
+            try {
+                Class<?> GameClass = Class.forName("crazyBallGame.CrazyBallGame");
+                Application game = (Application) (GameClass.getDeclaredConstructor().newInstance());
+                Stage gameStage = new Stage();
+                game.start(gameStage);
+
+            } catch (Exception e) {
+                GameControlPanel.setStatusMessage("Enable to launch game :(");
+                e.printStackTrace();
+            }
+        });
     }
 
     public void onOpponentNameInput(InputMethodEvent inputMethodEvent) {

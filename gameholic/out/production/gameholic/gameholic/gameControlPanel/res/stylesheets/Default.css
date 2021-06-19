@@ -1,6 +1,13 @@
 .root{
     -fx-base: #434343;
+    -fx-control-inner-background: #45494A;
+
 }
+
+.text-input {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, +50%);
+}
+
 
 .menu-bar, .menu-bar .menu-item{
     -fx-background-color: #3C3F41;
@@ -34,7 +41,7 @@
     -fx-background-color: #2B2B2B;
 }
 
-.text-field, #dark-box {
+#dark-box {
     -fx-background-color: #45494A;
     -fx-text-fill: white;
 }

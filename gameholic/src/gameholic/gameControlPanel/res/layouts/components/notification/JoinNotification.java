@@ -1,7 +1,7 @@
 package gameholic.gameControlPanel.res.layouts.components.notification;
 
 import gameholic.gameControlPanel.GameControlEvent;
-import gameholic.GameManager;
+import gameholic.gameManager.GameManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

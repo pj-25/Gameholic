@@ -3,8 +3,8 @@
     <output-path>$PROJECT_DIR$/out/artifacts/gameholic_jar</output-path>
     <root id="archive" name="gameholic.jar">
       <element id="module-output" name="gameholic" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/src/gameholic/games/CrazyBall.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaServerClientAPI/JSC/libs/JConnection.jar" path-in-jar="/" />
+      <element id="library" level="project" name="games" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/artifacts/gameManager_jar/gameManager.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

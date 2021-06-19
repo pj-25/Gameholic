@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gameManager">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/gameManager_jar/gameManager.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

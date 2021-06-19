@@ -1,4 +1,4 @@
-package gameholic;
+package gameholic.gameManager;
 
 import jsc.jConnection.JConnectionManager;
 import jsc.jEventManager.JEventCode;

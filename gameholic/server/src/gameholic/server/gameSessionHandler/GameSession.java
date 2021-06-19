@@ -157,7 +157,6 @@ public class GameSession {
         getPlayerConnection(playerType).send(msg);
     }
 
-
     public void end(GameControlEvent endEvent){
         send(PlayerType.CREATOR, JMessageFormatHandler.encode(endEvent));
         if(hasOpponentJoined()){

@@ -1,8 +1,8 @@
 package gameholic.gameControlPanel.res.layouts;
 
-import gameholic.GameManager;
 import gameholic.gameControlPanel.Main;
 import gameholic.gameControlPanel.res.layouts.components.notification.Notifications;
+import gameholic.gameManager.GameManager;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
