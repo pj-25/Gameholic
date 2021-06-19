@@ -3,7 +3,11 @@ A open source platform for gameholics where game developers can develop, deploy 
 
 ![COMMIT_STATUS](https://img.shields.io/github/last-commit/pj-25/Gameholic?style=for-the-badge)
 
+![IDE](https://img.shields.io/badge/IDE-IntellijIDEA-blueviolet)
+
 Developed using [JavaServerClientAPI](https://github.com/pj-25/JavaServerClientAPI)
+
+[Jump to documentation -->](https://pj-25.github.io/Gameholic/docs)
 
 ## Project Structure
 
