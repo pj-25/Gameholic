@@ -1,5 +1,5 @@
 # Gameholic
-A open source platform for gameholics where game developers can develop, deploy and share their awesome games.
+An open source platform for gameholics where developers can develop, deploy and share their awesome java games.
 
 ![COMMIT_STATUS](https://img.shields.io/github/last-commit/pj-25/Gameholic?style=for-the-badge)
 
