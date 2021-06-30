@@ -17,6 +17,8 @@ Compatibility: ```JDK 8 with JavaFX```
 ## Downloads
 [Download Game control panel](https://github.com/pj-25/Gameholic/raw/main/gameholic/out/artifacts/gameholic_jar/gameholic.jar)(Windows/linux with JDK8)
 
+## Game Control Panel
+![App preview](https://raw.githubusercontent.com/pj-25/Gameholic/main/res/images/appPreview.png)
 
 ## Project Structure
 
