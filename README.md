@@ -16,16 +16,14 @@ The project is under development as a proof of concept for the [JavaServerClient
 
 ---
 
-Compatibility: ```JDK 8 with JavaFX```
-
 ## 📖 Documentation
 [Jump to documentation -->](https://pj-25.github.io/Gameholic/docs)
-
 
 ## 🚀 Download
 [Download Game control panel](https://github.com/pj-25/Gameholic/raw/main/gameholic/out/artifacts/gameholic_jar/gameholic.jar)(Windows/linux with JDK8)
 
 ## 🔌 Game Control Panel
+Compatibility: ```JDK 8 with JavaFX```
 ![App preview](https://raw.githubusercontent.com/pj-25/Gameholic/main/res/images/appPreview.png)
 
 ## :card_file_box: Project Structure
