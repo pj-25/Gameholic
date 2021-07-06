@@ -1,5 +1,5 @@
 # :video_game: Gameholic 🤖
-An open source platform for gameholicws where developers(/learners) to develop, deploy and share their online(/offline) multiplayer games 🕹️ in java. The idea emphasis on learn-with-fun approach.
+An open source platform for gameholics where developers(/learners) develop, deploy and share their online(/offline) multiplayer games 🕹️ in java. The idea emphasis on learn-with-fun approach.
 
 The project is under development as a proof of concept for the [JavaServerClientAPI](https://github.com/pj-25/JavaServerClientAPI).
 
