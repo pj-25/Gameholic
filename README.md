@@ -9,10 +9,10 @@ The project is under development as a proof of concept for the [JavaServerClient
 ![IDE](https://img.shields.io/badge/IDE-IntellijIDEA-blueviolet)
 
 - 🏗️[Project tracker](https://github.com/pj-25/Gameholic/issues/1#issue-937496254)
-- 📖[Documentation](https://github.com/pj-25/Gameholic#documentation)
-- 🚀[Download](https://github.com/pj-25/Gameholic#download)
-- 🔌[Game Control Panel](https://github.com/pj-25/Gameholic#game-control-panel)
-- 🗃️[Project Structure](https://github.com/pj-25/Gameholic#project-structure)
+- 📖[Documentation](https://github.com/pj-25/Gameholic#-documentation)
+- 🚀[Download](https://github.com/pj-25/Gameholic#-download)
+- 🔌[Game Control Panel](https://github.com/pj-25/Gameholic#-game-control-panel)
+- 🗃️[Project Structure](https://github.com/pj-25/Gameholic#card_file_box-project-structure)
 
 ---
 
