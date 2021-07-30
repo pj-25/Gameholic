@@ -1,24 +1,32 @@
-# Gameholic
-An open source platform for gameholics where developers can develop, deploy and share their awesome java games.
+# 🎮 Gameholic 🤖
+An open-source platform for gameholics where developers(/learners) develop, deploy and share their online(/offline) multiplayer games 🕹️ in java. The idea emphasis on learn-with-fun approach.
+
+The project is under development as a proof of concept for the [JavaServerClientAPI](https://github.com/pj-25/JavaServerClientAPI).
 
 ![COMMIT_STATUS](https://img.shields.io/github/last-commit/pj-25/Gameholic?style=for-the-badge)
 
 ![STATUS](https://img.shields.io/badge/status-under%20development-important)
 ![IDE](https://img.shields.io/badge/IDE-IntellijIDEA-blueviolet)
 
-Developed using [JavaServerClientAPI](https://github.com/pj-25/JavaServerClientAPI)
+- 🏗️[Project tracker](https://github.com/pj-25/Gameholic/issues/1#issue-937496254)
+- 📖[Documentation](https://github.com/pj-25/Gameholic#-documentation)
+- 🚀[Download](https://github.com/pj-25/Gameholic#-download)
+- 🕹️[Game Control Panel](https://github.com/pj-25/Gameholic#-game-control-panel)
+- 🗃️[Project Structure](https://github.com/pj-25/Gameholic#card_file_box-project-structure)
 
-Compatibility: ```JDK 8 with JavaFX```
+---
 
-## Documentation
+## 📖 Documentation
 [Jump to documentation -->](https://pj-25.github.io/Gameholic/docs)
 
-
-## Downloads
+## 🚀 Download
 [Download Game control panel](https://github.com/pj-25/Gameholic/raw/main/gameholic/out/artifacts/gameholic_jar/gameholic.jar)(Windows/linux with JDK8)
 
+## 🕹️ Game Control Panel
+Compatibility: ```JDK 8 with JavaFX```
+![App preview](https://raw.githubusercontent.com/pj-25/Gameholic/main/res/images/appPreview.png)
 
-## Project Structure
+## 🗃️ Project Structure
 
 ```javascript
 gameholic/
@@ -141,3 +149,4 @@ gameholic/
 
 45 directories, 71 files
 ```
+> *click any of the above highlighted file to navigate to its source code
