@@ -1,6 +1,6 @@
-package gameholic.server.gameSessionHandler;
+package gameholic.gameManager;
 
-public enum PlayerType{
+public enum PlayerType {
 
     CREATOR(0),
     OPPONENT(1)

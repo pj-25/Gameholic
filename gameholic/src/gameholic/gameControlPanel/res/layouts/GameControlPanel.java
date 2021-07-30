@@ -88,6 +88,7 @@ public class GameControlPanel {
         try{
             GameManager.connect();
             setStatusMessage("Connection established :)");
+            GameManager.getjConnectionManager().setConnectionID(playerName.getText());
             connectionProperty.set(true);
             GameManager.getjConnectionManager().bindOnClose((eventData)->{
                 connectionProperty.set(false);

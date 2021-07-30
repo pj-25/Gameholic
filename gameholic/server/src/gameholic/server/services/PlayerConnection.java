@@ -1,7 +1,7 @@
 package gameholic.server.services;
 
-import gameholic.server.gameSessionHandler.GameSession;
-import gameholic.server.gameSessionHandler.PlayerType;
+import gameholic.server.gameSessionManager.GameSession;
+import gameholic.server.gameSessionManager.PlayerType;
 import jsc.jMessageHandler.JMessageDelimiter;
 import jsc.jMessageHandler.JMessageFormatHandler;
 import jsc.jServer.JRequestManager;

@@ -1,2 +1,4 @@
-package gameholic.server.gameSessionManager;public class GameSessionManager {
+package gameholic.server.gameSessionManager;
+
+public class GameSessionManager {
 }

@@ -1,4 +1,4 @@
-package gameholic.server.gameSessionHandler;
+package gameholic.server.gameSessionManager;
 
 import gameholic.server.services.GameControlEvent;
 import gameholic.server.services.PlayerConnection;

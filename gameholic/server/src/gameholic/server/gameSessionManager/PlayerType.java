@@ -1,4 +1,4 @@
-package gameholic.server.gameSessionHandler;
+package gameholic.server.gameSessionManager;
 
 public enum PlayerType{
 
