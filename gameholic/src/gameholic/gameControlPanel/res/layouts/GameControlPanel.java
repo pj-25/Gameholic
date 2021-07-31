@@ -45,7 +45,6 @@ public class GameControlPanel {
     private final HashMap<String, Tab> tabMap = new HashMap();
 
     private static TitledPane notifications;
-    private static Paint defaultFill;
     public final static String COMPONENTS_DIR = "/gameholic/gameControlPanel/res/layouts/components/";
     public final static String STYLESHEETS_DIR = "/gameholic/gameControlPanel/res/stylesheets";
 
@@ -76,8 +75,8 @@ public class GameControlPanel {
         notifications = notificationsPane;
         notificationsPane.setOnMouseReleased((mouseEvent)->{
             if(notificationsPane.isExpanded() || !notificationsPane.getText().equals("Notifications")){
-                notificationsPane.setTextFill(defaultFill);
                 notificationsPane.setText("Notifications");
+                notificationsPane.setStyle("-fx-text-fill: -fx-text-inner-color;");
                 Notifications.setUnreadMsgCount(0);
             }
         });
