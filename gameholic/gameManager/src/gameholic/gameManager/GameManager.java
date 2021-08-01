@@ -29,7 +29,7 @@ public class GameManager {
 
     public static void connect() throws IOException{
         //jConnection = new JConnection(gameConfig.getProperty("SERVER_IP"),Integer.parseInt(gameConfig.getProperty("SERVER_PORT")));
-        jConnectionManager = new JConnectionManager("18.118.83.85", 5656, jEventManager);
+        jConnectionManager = new JConnectionManager("3.15.248.251", 5656, jEventManager);
         jConnectionManager.run();
         jEventManager.notifyAllConsumers(JEventType.CONNECT, "connected");
     }

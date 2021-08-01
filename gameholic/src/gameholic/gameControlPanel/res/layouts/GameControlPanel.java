@@ -188,6 +188,7 @@ public class GameControlPanel {
     }
 
     public void close(ActionEvent actionEvent) {
+        GameManager.close();
         Main.getPrimaryStage().close();
     }
 
