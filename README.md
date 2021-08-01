@@ -10,7 +10,7 @@ The project is under development as a proof of concept for the [JavaServerClient
 
 - 📹 About Gameholic
     - 📢 [In English](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/6b690c58-ae0f-4fc8-9ac7-9bf7a2a3569e/transfers/target_transfer.mp4)
-    - 📢 [In Hindi](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/00b130aa-e8b8-432f-a894-02981cf99a4b/transfers/target_transfer.mp4)
+    - 📢 [In Hindi](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/881a5203-2f03-427a-b524-ac65855277a9/transfers/target_transfer.mp4)
 - 🏗️ [Project tracker](https://github.com/pj-25/Gameholic/issues/1#issue-937496254)
 - 📖 [Documentation](https://github.com/pj-25/Gameholic#-documentation)
 - 🚀 [Download](https://github.com/pj-25/Gameholic#-download)
