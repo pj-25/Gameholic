@@ -8,7 +8,7 @@ The project is under development as a proof of concept for the [JavaServerClient
 ![STATUS](https://img.shields.io/badge/status-under%20development-important)
 ![IDE](https://img.shields.io/badge/IDE-IntellijIDEA-blueviolet)
 
-- 📹[About](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/6b690c58-ae0f-4fc8-9ac7-9bf7a2a3569e/transfers/target_transfer.mp4)
+- 📹[About Gameholic](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/6b690c58-ae0f-4fc8-9ac7-9bf7a2a3569e/transfers/target_transfer.mp4)
 - 🏗️[Project tracker](https://github.com/pj-25/Gameholic/issues/1#issue-937496254)
 - 📖[Documentation](https://github.com/pj-25/Gameholic#-documentation)
 - 🚀[Download](https://github.com/pj-25/Gameholic#-download)
