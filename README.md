@@ -8,12 +8,14 @@ The project is under development as a proof of concept for the [JavaServerClient
 ![STATUS](https://img.shields.io/badge/status-under%20development-important)
 ![IDE](https://img.shields.io/badge/IDE-IntellijIDEA-blueviolet)
 
-- 📹[About Gameholic](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/6b690c58-ae0f-4fc8-9ac7-9bf7a2a3569e/transfers/target_transfer.mp4)
-- 🏗️[Project tracker](https://github.com/pj-25/Gameholic/issues/1#issue-937496254)
-- 📖[Documentation](https://github.com/pj-25/Gameholic#-documentation)
-- 🚀[Download](https://github.com/pj-25/Gameholic#-download)
-- 🕹️[Game Control Panel](https://github.com/pj-25/Gameholic#-game-control-panel)
-- 🗃️[Project Structure](https://github.com/pj-25/Gameholic#card_file_box-project-structure)
+- 📹 About Gameholic
+    - 📢 [In English](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/6b690c58-ae0f-4fc8-9ac7-9bf7a2a3569e/transfers/target_transfer.mp4)
+    - 📢 [In Hindi](https://synthesia-ttv-data.s3-eu-west-1.amazonaws.com/video_data/00b130aa-e8b8-432f-a894-02981cf99a4b/transfers/target_transfer.mp4)
+- 🏗️ [Project tracker](https://github.com/pj-25/Gameholic/issues/1#issue-937496254)
+- 📖 [Documentation](https://github.com/pj-25/Gameholic#-documentation)
+- 🚀 [Download](https://github.com/pj-25/Gameholic#-download)
+- 🕹️ [Game Control Panel](https://github.com/pj-25/Gameholic#-game-control-panel)
+- 🗃️ [Project Structure](https://github.com/pj-25/Gameholic#card_file_box-project-structure)
 
 ---
 
