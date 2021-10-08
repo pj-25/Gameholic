@@ -42,7 +42,7 @@ public class GameControlPanel {
 
     @FXML
     private Menu TabsSelectMenu;
-    private final HashMap<String, Tab> tabMap = new HashMap();
+    private final HashMap<String, Tab> tabMap = new HashMap<>();
 
     private static TitledPane notifications;
     public final static String COMPONENTS_DIR = "/gameholic/gameControlPanel/res/layouts/components/";

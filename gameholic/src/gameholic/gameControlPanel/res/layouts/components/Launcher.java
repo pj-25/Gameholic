@@ -124,7 +124,7 @@ public class Launcher {
                 game.start(gameStage);
 
             } catch (Exception e) {
-                GameControlPanel.setStatusMessage("Enable to launch game :(");
+                GameControlPanel.setStatusMessage("Unable to launch game :(");
                 e.printStackTrace();
             }
         });
