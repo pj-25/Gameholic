@@ -30,6 +30,49 @@ The project is under development as a proof of concept for the [JavaServerClient
 Compatibility: ```JDK 8 with JavaFX```
 ![App preview](https://raw.githubusercontent.com/pj-25/Gameholic/main/res/images/appPreview.png)
 
+### Get Started
+<img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/client.png" width="200">
+
+```
+Connect to server from bottom pane
+Enter your name -> Click Connect
+```
+---
+<img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/startup.png" width="200">
+
+```
+Launch your game from Launcher tab(on left side). 
+Select Game -> Select Game Mode -> Play  
+
+# Online: 
+To play online, player can either create a game or join a game. 
+* Create game: 
+    Click create button -> wait for server to create game session -> share the generated game session ID to opponent or invite via Gmail/WhatsApp/AskToJoin notification.  
+* Join game: 
+    Get game session ID from your friend and click join button
+
+# Offline: 
+Enter player names -> click start game button
+```
+---
+<img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/video-games.png" width="200">
+                                                                                                                                                
+```
+Open Game Store Tab(on left side) to search and download new games
+```
+---
+<img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/notification.png" width="200">
+                                                                                                                                      
+```
+Notifications are shown in notification pane(on bottom right side)
+```
+---
+<img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/chat(2).png" width="200">
+                                                                                                                                             
+```
+Chat window lets you chat with your friends (only when online)
+```
+
 ## 🗃️ Project Structure
 
 ```javascript
