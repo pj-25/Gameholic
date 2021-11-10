@@ -18,8 +18,8 @@ The project is under development as a proof of concept for the [JavaServerClient
 - 🗃️ [Project Structure](https://github.com/pj-25/Gameholic#card_file_box-project-structure)
 
 ![](https://raw.githubusercontent.com/pj-25/Gameholic/main/res/images/gameDev.gif)
----
 
+---
 ## 📖 Documentation
 [Jump to documentation -->](https://pj-25.github.io/Gameholic/docs)
 
@@ -68,7 +68,6 @@ Notifications are shown in notification pane(on bottom right side)
 ```
 Chat window lets you chat with your friends (only when online)
 ```
----
 
 ## 🗃️ Project Structure
 
