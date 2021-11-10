@@ -37,7 +37,6 @@ Compatibility: ```JDK 8 with JavaFX```
 Connect to server from bottom pane
 Enter your name -> Click Connect
 ```
----
 <img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/startup.png" width="200">
 
 ```
@@ -54,24 +53,22 @@ To play online, player can either create a game or join a game.
 # Offline: 
 Enter player names -> click start game button
 ```
----
 <img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/video-games.png" width="200">
                                                                                                                                                 
 ```
 Open Game Store Tab(on left side) to search and download new games
 ```
----
 <img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/notification.png" width="200">
                                                                                                                                       
 ```
 Notifications are shown in notification pane(on bottom right side)
 ```
----
 <img src="https://raw.githubusercontent.com/pj-25/Gameholic/main/gameholic/src/gameholic/gameControlPanel/res/images/chat(2).png" width="200">
                                                                                                                                              
 ```
 Chat window lets you chat with your friends (only when online)
 ```
+---
 
 ## 🗃️ Project Structure
 
